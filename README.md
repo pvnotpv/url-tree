@@ -1,4 +1,5 @@
-# url-tree - Used to map a site especially when bughunting
+# url-tree  
+### Useful to map a site especially when bughunting.
 <p float="left">
   <img src="https://github.com/pvnotpv/url-tree/blob/main/images/img.png?raw=true" width="440" />
 </p>
