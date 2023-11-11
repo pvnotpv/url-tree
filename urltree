@@ -1,0 +1,12 @@
+#!/bin/bash
+# Used to beautify the tree output
+input_data=""
+while IFS= read -r line; do
+    if [ "$line" = "EOF" ]; then
+        break
+    fi
+    input_data+="$line\n"
+    
+done
+#takes standard input and passes it to tool.py
+echo "$input_data" | python3 tool.py | sed -e '$s/├/└/' -e '3s/├/┌/' | sed -e 's/^/      /' | sed -e '1,2d'
