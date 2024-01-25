@@ -34,32 +34,41 @@ def build_tree_from_urls(urls):
                 
                 if not found:
                     if current_node.nodeid == 0:
-                        new_node = TreeNode(part, color=Fore.RED, nodeid=i)
+                        new_node = TreeNode(part, color=Fore.LIGHTBLACK_EX, nodeid=i)
                         current_node.add_child(new_node)
                         current_node = new_node
 
                     elif current_node.nodeid == 1:
-                        new_node = TreeNode(part, color=Fore.GREEN, nodeid=current_node.nodeid+1)
+                        new_node = TreeNode(part, color=Fore.LIGHTRED_EX, nodeid=current_node.nodeid+1)
                         current_node.add_child(new_node)
                         current_node = new_node
 
                     elif current_node.nodeid == 2:
-                        new_node = TreeNode(part, color=Fore.YELLOW, nodeid=current_node.nodeid+1)
+                        new_node = TreeNode(part, color=Fore.LIGHTYELLOW_EX, nodeid=current_node.nodeid+1)
                         current_node.add_child(new_node)
                         current_node = new_node
 
                     elif current_node.nodeid == 3:
-                        new_node = TreeNode(part, color=Fore.WHITE, nodeid=current_node.nodeid+1)
+                        new_node = TreeNode(part, color=Fore.LIGHTMAGENTA_EX, nodeid=current_node.nodeid+1)
                         current_node.add_child(new_node)
                         current_node = new_node
+
+                    elif current_node.nodeid == 4:
+                        new_node = TreeNode(part, color=Fore.LIGHTCYAN_EX, nodeid=current_node.nodeid+1)
+                        current_node.add_child(new_node)
+                        current_node = new_node
+
                         
                     else:
-                        new_node = TreeNode(part, color=Fore.MAGENTA, nodeid=current_node.nodeid+1)
+                        new_node = TreeNode(part, color=Fore.LIGHTBLUE_EX, nodeid=current_node.nodeid+1)
                         current_node.add_child(new_node)
                         current_node = new_node
 
 
                     
+    #for child in root.children:
+     #   for j in child.children:
+      #      print(j.nodeid)
     return root
         
 
@@ -69,7 +78,7 @@ def print_tree(node, indent="├"):
         
 
     for child in node.children:
-        print_tree(child, indent + "──")
+        print_tree(child, indent + "────")
 
 if __name__ == "__main__":    
     urls = []
@@ -77,7 +86,14 @@ if __name__ == "__main__":
     for line in fileinput.input():
         lns = line
         
+        #line = line.split('\n')
+        #print(line)
+        #urls.append(line)
+    #urls = open(sys.argv[1]).read().splitlines()
+    #urls = sys.stdin.read()
     lns = lns.replace('\\n', ' ').split(' ')
+    #print(lns)
+    #print(urls)
     root = build_tree_from_urls(lns)
     print_tree(root)
 
