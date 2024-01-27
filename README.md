@@ -17,9 +17,10 @@ def request(flow):
         file.write(url + '\n')
 ```
 - To remove parameters use : ``` cut -d "?" -f1 | urltree ```
-- gf pattern to remove clean urls:
+- gf pattern to clean urls:
 
-``` {
+```
+{
     "flags": "-v",
     "pattern": "svg\\|jpg\\|jpeg\\|gif\\|css\\|tif\\|tiff\\|png\\|ttf\\|woff\\|woff2\\|ico\\|.js\\|.html\\|.ashx"
 }
